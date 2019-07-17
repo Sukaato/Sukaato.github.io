@@ -320,13 +320,13 @@ h2 {
 }
 
 .btn:disabled,
-button#reset:disabled {
+button[name="reset"]:disabled {
     /* Couleur */
     border-color: rgba(228, 8, 8, 0.719);
 }
 
 .btn:disabled:hover,
-button#reset:disabled:hover {
+button[name="reset"]:disabled:hover {
     /* Couleur */
     border-color: rgb(255, 255, 255);
     background: rgba(228, 8, 8, 0.5);
@@ -371,7 +371,7 @@ p#result {
     justify-content: space-evenly;
 }
 
-button#reset {
+button[name="reset"] {
     /* Display */
     display: flex;
     justify-content: center;
@@ -398,7 +398,7 @@ button#reset {
     box-shadow: 0 0 .5em .2em rgba(0, 0, 0, 0.45);
 }
 
-button#reset:not(:disabled):hover {
+button[name="reset"]:not(:disabled):hover {
     /* Taille */
     transform: scale(1.035);
 
@@ -406,7 +406,7 @@ button#reset:not(:disabled):hover {
     background: rgba(8, 228, 63, 0.5);
 }
 
-button#reset:not(:disabled):active {
+button[name="reset"]:not(:disabled):active {
     /* Taille */
     transform: scale(.9);
 }
@@ -536,7 +536,7 @@ footer {
 
     .content p,
     p#result,
-    button#reset {
+    button[name="reset"] {
         font-size: 1.5rem;
     }
 
@@ -546,7 +546,7 @@ footer {
         height: 48px;
     }
 
-    button#reset {
+    button[name="reset"] {
         margin-top: 2%;
         padding: 0;
     }
@@ -783,7 +783,7 @@ footer {
         padding: 1%;
     }
 
-    button#reset {
+    button[name="reset"] {
         width: 40%;
         margin: 2% auto;
         padding: 1%;

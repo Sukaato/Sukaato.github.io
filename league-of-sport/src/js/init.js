@@ -8,43 +8,43 @@ const lopFct = () => {
     let jungle = document.querySelector('#jungle + label');
 
     // OBJECTIVE
-    let addTurretBtn = document.querySelector('#addTurret');
-    let removeTurretBtn = document.querySelector('#removeTurret');
+    let addTurretBtn = document.querySelector('[name="addTurret"]');
+    let removeTurretBtn = document.querySelector('[name="removeTurret"]');
 
-    let addInibBtn = document.querySelector('#addInib');
-    let removeInibBtn = document.querySelector('#removeInib');
+    let addInibBtn = document.querySelector('[name="addInib"]');
+    let removeInibBtn = document.querySelector('[name="removeInib"]');
 
-    let addNexusBtn = document.querySelector('#addNexus');
-    let removeNexusBtn = document.querySelector('#removeNexus');
+    let addNexusBtn = document.querySelector('[name="addNexus"]');
+    let removeNexusBtn = document.querySelector('[name="removeNexus"]');
 
     // KDA
-    let addKillBtn = document.querySelector('#addKill');
-    let removeKillBtn = document.querySelector('#removeKill');
+    let addKillBtn = document.querySelector('[name="addKill"]');
+    let removeKillBtn = document.querySelector('[name="removeKill"]');
 
-    let addDeathBtn = document.querySelector('#addDeath');
-    let removeDeathBtn = document.querySelector('#removeDeath');
+    let addDeathBtn = document.querySelector('[name="addDeath"]');
+    let removeDeathBtn = document.querySelector('[name="removeDeath"]');
 
-    let addAssistBtn = document.querySelector('#addAssist');
-    let removeAssistBtn = document.querySelector('#removeAssist');
+    let addAssistBtn = document.querySelector('[name="addAssist"]');
+    let removeAssistBtn = document.querySelector('[name="removeAssist"]');
 
     // JUNGLE
-    let addCarapBtn = document.querySelector('#addCarap');
-    let removeCarapBtn = document.querySelector('#removeCarap');
+    let addCarapBtn = document.querySelector('[name="addCarap"]');
+    let removeCarapBtn = document.querySelector('[name="removeCarap"]');
 
-    let addHeraldBtn = document.querySelector('#addHerald');
-    let removeHeraldBtn = document.querySelector('#removeHerald');
+    let addHeraldBtn = document.querySelector('[name="addHerald"]');
+    let removeHeraldBtn = document.querySelector('[name="removeHerald"]');
 
-    let addDragonBtn = document.querySelector('#addDrake');
-    let removeDragonBtn = document.querySelector('#removeDrake');
+    let addDragonBtn = document.querySelector('[name="addDrake"]');
+    let removeDragonBtn = document.querySelector('[name="removeDrake"]');
 
-    let addBaronBtn = document.querySelector('#addBaron');
-    let removeBaronBtn = document.querySelector('#removeBaron');
+    let addBaronBtn = document.querySelector('[name="addBaron"]');
+    let removeBaronBtn = document.querySelector('[name="removeBaron"]');
 
     let pseudoInput = document.querySelector("#pseudo");
     let opgg = document.querySelector("#opgg");
     let porofessor = document.querySelector("#porofessor");
     
-    let resetBtn = document.querySelector("#reset");
+    let resetBtn = document.querySelector('[name="reset"]');
     let result = document.querySelector("#result");
 
     // SWITCH 
