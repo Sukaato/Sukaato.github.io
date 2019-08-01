@@ -1,0 +1,94 @@
+:host * {
+    margin: 0;
+    padding: 0;
+    font-family: 'roboto';
+}
+
+:host {
+    /* Display */
+    display: flex;
+    flex-direction: column;
+    
+    /* Taille */
+    height: 100%;
+    border-radius: 10px;
+
+    /* Couleur */
+    box-shadow: 0 0 .5em .2em #00000040;
+
+    /* Autre */
+    overflow: hidden;
+    transition: .3s ease-out 0s;
+    background: #FFF;
+    border: 1px solid rgba(0, 0, 0, 0.4); 
+}
+
+:host [class|="card"] {
+    width: 100%;
+}
+
+:host .card-image > img {
+    width: 100%;
+}
+
+:host card-content {
+    /* Display */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    /* Taille */
+    height: 100%;
+
+    /* Position */
+    padding: 10px 20px 24px 20px;
+}
+
+:host card-content > a {
+    /* Texte */
+    font-size: 22px;
+    line-height: calc(22px + (22px / 2 * 1.5));
+    text-decoration: none;
+
+    /* Couleur */
+    color: #000000;
+}
+
+:host card-content > p {
+    /* Position */
+    margin-top: -20px;
+
+    /* Texte */
+    font-size: 14px;
+    line-height: calc(14px + (14px / 2 * 1.2));
+    text-align: left;
+    text-decoration: none;
+
+    /* Couleur */
+    color: #00000099;
+}
+
+:host card-content > button {
+    /* Taille */
+    width: fit-content;
+    border: none;
+    border-radius: 5px;
+
+    /* Position */
+    padding: 4px 16px;
+
+    /* Texte */
+    font-size: 12px;
+    line-height: 2;
+
+    /* Couleur */
+    outline: none;
+    box-shadow: 0 8px 1em -.2em rgba(0, 0, 0, 0.3);
+    background: #32B0EF;
+    color: #FFF;
+    text-shadow: 0 1px #63b6e0;
+}
+
+:host card-content > button:hover {
+    cursor: pointer;
+}
