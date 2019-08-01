@@ -10,7 +10,7 @@ function initRequest() {
 }
 function request() {
     const request = Object.assign({ method: 'GET' }, initRequest());
-    const response = fetch(`http://${location.host}/src/css/card.min.css`, request);
+    const response = fetch(`${location.origin}/src/css/card.min.css`, request);
     response.then(res => {
         return res.text().then(style => {
             buildSiteCard(style.replace(/\n/g, ""));
