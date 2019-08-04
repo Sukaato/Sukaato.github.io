@@ -46,9 +46,9 @@ const apiFunc = () => {
                     button.innerText = "Y allez →";
                     button.addEventListener('click', () => {
                         let meta = api.createNode('meta');
-                        meta.setAttribute("httpEquiv", "refresh");
-                        meta.setAttribute('content', `0; url=/projects/${url}/index.html`);
-                        document.head.append(meta)
+                        meta.httpEquiv =  "refresh";
+                        meta.content = `0; url=./projects/${url}/index.html`;
+                        document.head.prepend(meta)
                     });
 
                     let cardButton = api.createNode('card-button');
