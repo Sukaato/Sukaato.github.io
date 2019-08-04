@@ -27,72 +27,82 @@ const apiFunc = () => {
             return document.createElement(nodeName)
         },
         buildSite: (style) => {
-            let styleText = style;
             let list = document.querySelector('#webList');
+
+            
             WEB_LIST.forEach(site => {
+                let styleNode = api.createNode('style');
+                styleNode.innerText = style;
 
-                let webCard = api.createNode('web-card');
-                if (!site.empty) {
-                    let url = site.url;
+                let webCard = api.createNode('web-card'); // Creation of HTML elt
+                let shadow = webCard.attachShadow({mode: 'open'}); // Make shadowDOM into your HTML elt
 
-                    let style = api.createNode('style');
-                    style.innerText = styleText;
+                shadow.append(styleNode); // Place your style into the shadowDOM
+
+                let url = site.url ? site.url : null;
+                if (url) {
+                    // BUTTON
+                    let button = api.createNode('button');
+                    button.innerText = "Y allez →";
+                    button.addEventListener('click', () => {
+                        let meta = api.createNode('meta');
+                        meta.setAttribute("httpEquiv", "refresh");
+                        meta.setAttribute('content', `0; url=/projects/${url}/index.html`);
+                        document.head.append(meta)
+                    });
+
+                    let cardButton = api.createNode('card-button');
+                    cardButton.append(button);
+
+                    // START BODY CODE //
+                    // SLOGAN
+                    let text = api.createNode('p');
+                    text.innerText = site.slogan;
+
+                    let cardText = api.createNode('card-text');
+                    cardText.append(text);
+                    
+                    // TITRE
+                    let title = api.createNode("h3");
+                    title.innerText = site.name;
+                    
+                    let titleLink = api.createNode('a');
+                    titleLink.setAttribute('href', `/projects/${url}/index.html`);
+                    titleLink.setAttribute('target', "_blank");
+                    titleLink.setAttribute('rel', "noopener noreferrer");
+                    titleLink.append(title);
+
+                    let cardtitle = api.createNode('card-title');
+                    cardtitle.append(titleLink);
+
+                    let cardBody = api.createNode('card-body');
+                    cardBody.append(cardtitle, cardText);
+
+                    // END BODY CODE //
 
                     // IMAGE
                     let img = api.createNode('img');
-                    img.src = `src/img/webList/${url}.${site.image}`;
-                    img.alt = "image not found";
+                    img.setAttribute('src', `src/img/webList/${url}.${site.image}`);
+                    img.setAttribute('alt', 'image not found');
 
                     let imgLink = api.createNode('a');
-                    imgLink.classList.add("card-image");
                     imgLink.setAttribute('href', `/projects/${url}/index.html`);
                     imgLink.setAttribute('target', "_blank");
                     imgLink.setAttribute('rel', "noopener noreferrer");
                     imgLink.append(img);
 
-                    // TITRE
-                    let title = api.createNode("h3");
-                    title.innerText = site.name;
+                    let cardImage = api.createNode('card-image');
+                    cardImage.append(imgLink);
 
-                    let cardtitle = api.createNode('a');
-                    cardtitle.classList.add("card-title");
-                    cardtitle.setAttribute('href', `/projects/${url}/index.html`);
-                    cardtitle.setAttribute('target', "_blank");
-                    cardtitle.setAttribute('rel', "noopener noreferrer");
-                    cardtitle.append(title);
-
-                    // SLOGAN
-                    let slogan = api.createNode('p');
-                    slogan.classList.add("card-slogan");
-                    slogan.innerText = site.slogan;
-
-                    // BOUTON
-                    let button = api.createNode('button');
-                    button.innerText = "Y allez →";
-                    button.addEventListener('click', () => {
-                        let meta = api.createNode('meta');
-                        meta.httpEquiv = "refresh";
-                        meta.content += `0; url=/projects/${url}/index.html`;
-                        document.head.append(meta)
-                    })
 
                     let cardContent = api.createNode('card-content');
-                    cardContent.append(cardtitle, slogan, button)
+                    cardContent.append(cardImage, cardBody, cardButton)
 
-                    let shadow = webCard.attachShadow({
-                        mode: 'open'
-                    });
-                    shadow.append(style, imgLink, cardContent);
+                    shadow.append(cardContent);
                 } else {
-                    webCard.classList.add("empty");
+                    let cardContent = api.createNode('card-content');
 
-                    let style = api.createNode('style');
-                    style.innerText = styleText;
-
-                    let shadow = webCard.attachShadow({
-                        mode: 'open'
-                    });
-                    shadow.append(style);
+                    shadow.append(cardContent);
                 }
                 list.append(webCard);
             })

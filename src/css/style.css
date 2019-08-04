@@ -53,13 +53,3 @@ main {
     /* Position */
     margin: auto;
 }
-
-web-card.empty {
-    background: #00000040;
-    border-radius: 10px;
-}
-
-web-card:not(.empty):hover {
-    transform: translate(0, -10px);
-    box-shadow: 0 10px .45em .2em #00000040;
-}
