@@ -4,5 +4,5 @@ const WEB_LIST = [
         url: "league-of-sport",
         image: "png",
         slogan: "Faire du sport en jouant à League of Legends c'est possible !"
-    }, {}, {}, {}, {}, {}, {}, {}, {}, {}
+    }
 ]

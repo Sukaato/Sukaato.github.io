@@ -1,5 +1,13 @@
 const apiFunc = () => {
     return {
+        completeSiteList: () => {
+            while (WEB_LIST.length < 10) {
+                WEB_LIST.push({});
+            }
+            while (WEB_LIST.length > 10 && WEB_LIST.length % 5 !== 0) {
+                WEB_LIST.push({});
+            }
+        },
         request: {
             init: () => {
                 const HEADERS = new Headers();
@@ -112,4 +120,5 @@ const apiFunc = () => {
 
 const api = apiFunc();
 
+api.completeSiteList();
 api.request.fetch()
