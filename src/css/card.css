@@ -1,7 +1,9 @@
 /* Taille */
 :host {
-  height: 100%;
-  width: 100%;
+  min-height: 350px;
+  min-width: 250px;
+  max-height: 350px;
+  max-width: 250px;
   font-family: 'roboto';
 }
 :host > card-content {
@@ -31,7 +33,8 @@
 :host > card-content > card-image > a {
   display: block;
   width: 100%;
-  color: #000;
+  color: rgb(0, 0, 0);
+  opacity: 0.8;
 }
 :host > card-content > card-image > a > img {
   width: 100%;
@@ -58,6 +61,8 @@
 }
 :host > card-content > card-body > card-text > p {
   text-align: left;
+  color: rgb(0, 0, 0);
+  opacity: 0.5;
 }
 :host > card-content > card-button {
   padding: 0 0 20px 15px;
