@@ -1,4 +1,4 @@
-const apiFunc = () => {
+const api = () => {
 
     /**
      * @desc completes the list of websites
@@ -31,7 +31,7 @@ const apiFunc = () => {
         const response = fetch(`${location.origin}/src/css/card.min.css`, request);
         response.then(res => {
             res.text().then(style => {
-                return newList(style);
+                newList(style);
             })
         }).catch(err => console.warn(err));
     }
@@ -181,7 +181,7 @@ const apiFunc = () => {
      */
     let init = () => {
         WEB_LIST.length < 10 && completeSiteList();
-        return getStyle();
+        getStyle();
     }
 
     return {
@@ -191,6 +191,4 @@ const apiFunc = () => {
     }
 }
 
-const api = apiFunc();
-
-api.function.init()
+api().function.init()
