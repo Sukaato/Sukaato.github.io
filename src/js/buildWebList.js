@@ -91,7 +91,7 @@ const apiFunc = () => {
     let newList = (params) => {
         for (let index = 0, count = WEB_LIST.length; index < count; index += 5) {
             let list = WEB_LIST.slice(index, index + 5)
-             return build(params, list)
+            build(params, list)
         }
     }
 
