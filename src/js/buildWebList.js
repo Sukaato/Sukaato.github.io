@@ -1,11 +1,17 @@
 const apiFunc = () => {
 
+    /**
+     * @desc completes the list of websites
+     */
     let completeSiteList = () => {
         while ((WEB_LIST.length < 10 || (WEB_LIST.length > 10 && WEB_LIST.length % 5 !== 0))) {
             WEB_LIST.push({});
         }
     }
 
+    /**
+     * @desc Initialize the request
+     */
     let initRequest = () => {
         const HEADERS = new Headers();
         HEADERS.set('Content-Type', 'text/css');
@@ -17,16 +23,24 @@ const apiFunc = () => {
         }
     }
 
+    /**
+     * @desc Request for get the card style
+     */
     let getStyle = () => {
         const request = Object.assign({method: 'GET'}, initRequest());
         const response = fetch(`${location.origin}/src/css/card.min.css`, request);
         response.then(res => {
             res.text().then(style => {
-                newList(style);
-            }).catch(err => console.warn(err));
+                return newList(style);
+            })
         }).catch(err => console.warn(err));
     }
 
+    /**
+     * 
+     * @param {{name: String, class: String[], id: String}} json 
+     * @returns {HTMLElement}
+     */
     let createNode = (json) => {
         if (json && typeof(json) === "object") {
             let nodeName = json.name !== null
@@ -35,6 +49,9 @@ const apiFunc = () => {
                     : console.error("The name must be a string !")
                 : console.error("You need to defined the name of node you want");
 
+            /**
+             * @type {HTMLElement}
+             */
             let node = document.createElement(nodeName);
 
             let classes = json.class !== null
@@ -67,13 +84,22 @@ const apiFunc = () => {
         }
     }
 
+    /**
+     * 
+     * @param {String} params Contains the style of the card
+     */
     let newList = (params) => {
         for (let index = 0, count = WEB_LIST.length; index < count; index += 5) {
             let list = WEB_LIST.slice(index, index + 5)
-            build(params, list)
+             return build(params, list)
         }
     }
 
+    /**
+     * @desc Create a new card
+     * @param {String} style Contains the style of card
+     * @param {String[]} json Contains the website information
+     */
     let build = (style, json) => {
         let webList = document.querySelector('#webList');
 
@@ -98,10 +124,7 @@ const apiFunc = () => {
                 let button = createNode({name: "button"});
                 button.innerText = "Y allez →";
                 button.addEventListener('click', () => {
-                    let meta = createNode({name: "meta"});
-                    meta.httpEquiv = "refresh";
-                    meta.content = `0; url=./projects/${url}/index.html`;
-                    document.head.prepend(meta)
+                    location.href += url
                 });
     
                 let cardButton = createNode({name: "card-button"});
@@ -120,7 +143,7 @@ const apiFunc = () => {
                 title.innerText = site.name;
     
                 let titleLink = createNode({name: "a"});
-                titleLink.setAttribute('href', `/projects/${url}/index.html`);
+                titleLink.setAttribute('href', url);
                 titleLink.setAttribute('target', "_blank");
                 titleLink.setAttribute('rel', "noopener noreferrer");
                 titleLink.append(title);
@@ -139,7 +162,7 @@ const apiFunc = () => {
                 img.setAttribute('alt', 'image not found');
     
                 let imgLink = createNode({name: "a"});
-                imgLink.setAttribute('href', `/projects/${url}/index.html`);
+                imgLink.setAttribute('href', url);
                 imgLink.setAttribute('target', "_blank");
                 imgLink.setAttribute('rel', "noopener noreferrer");
                 imgLink.append(img);
@@ -153,9 +176,12 @@ const apiFunc = () => {
 
     }
 
+    /**
+     * @desc initilise 
+     */
     let init = () => {
         WEB_LIST.length < 10 && completeSiteList();
-        getStyle();
+        return getStyle();
     }
 
     return {
